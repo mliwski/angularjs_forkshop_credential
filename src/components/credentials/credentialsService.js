@@ -9,7 +9,6 @@
 
             return {
                 readUser: function (username) {
-                    console.log(username);
                     var request = {
                         method: 'GET',
                         url: base_uri,
@@ -27,14 +26,17 @@
                     });
                 },
                 calculatePassword: function(username) {
-                    return username;
+                    var hash = CryptoJS.SHA256(username);
+                    console.log(hash.toString(CryptoJS.enc.Hex));
+                    return hash.toString(CryptoJS.enc.Hex).substr(4,5);
+
                 }
             };
 
             function translate_idToid(user) {
-                user.id = user._id.$oid;
-                delete user._id;
-                return user;
+                    user.id = user._id.$oid;
+                    delete user._id;
+                    return user;
             }
         }]);
 })();
