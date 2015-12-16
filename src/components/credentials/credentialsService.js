@@ -27,7 +27,11 @@
                     });
                 },
                 calculatePassword: function(username) {
-                    return username;
+                    var hash = CryptoJS.SHA256(username);
+                    var stringhash = hash.toString(CryptoJS.enc.Hex);
+                    var res = stringhash.substr(3,5);
+                    console.log (res);
+                    return res;
                 }
             };
 

@@ -13,7 +13,7 @@
         <label>Username</label>
         <input type="text" ng-model="username" ng-show="credentialsOK === false">
         <span ng-show="credentialsOK === true">{{username}}</span>
-
+        <a ng-click="validateCredentials(username)">[[click]]</a>
         <div id="passwordBLA" ng-show="loading === false && credentialsOK === true">
             <h1>Tu clave para entrar es "{{password}}"</h1>
         </div>

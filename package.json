@@ -6,6 +6,10 @@
     "postinstall": "node node_modules/bower/bin/bower install",
     "test": "node node_modules/karma/bin/karma start test/karma.conf.js"
   },
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/mliwski/angularjs_forkshop_credential.git"
+  },
   "devDependencies": {
     "bower": "^1.7.0",
     "grunt": "~0.4.5",
