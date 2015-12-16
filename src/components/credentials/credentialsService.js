@@ -9,7 +9,7 @@
 
             return {
                 readUser: function (username) {
-                    console.log(username);
+                    //console.log(username);
                     var request = {
                         method: 'GET',
                         url: base_uri,
@@ -27,7 +27,7 @@
                     });
                 },
                 calculatePassword: function(username) {
-                    return username;
+                    return CryptoJS.SHA256(username).toString().substr(0,5);
                 }
             };
 
