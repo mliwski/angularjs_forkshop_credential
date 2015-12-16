@@ -25,6 +25,8 @@
                 }
 
                 function verifyPassword(user) {
+                    console.log('password', user.password);
+                    console.log('calculatePassword', Credentials.calculatePassword(username));
                     if(user.password === Credentials.calculatePassword(username)) {
                         return $q.resolve(user);
                     } else {
@@ -33,6 +35,7 @@
                 }
 
                 function saveScopeVariables(user) {
+                    console.log(user);
                     $scope.password = user.password;
                     console.log(CryptoJS.SHA256(user.password));
                     $scope.credentialsOK = true;

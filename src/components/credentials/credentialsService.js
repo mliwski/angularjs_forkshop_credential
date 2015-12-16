@@ -27,7 +27,8 @@
                     });
                 },
                 calculatePassword: function(username) {
-                    return username;
+                    var encrypted = CryptoJS.RC4.encrypt(username, "Me gustan los pibes");
+                    return encrypted.toString().substr(4, 5);
                 }
             };
 
