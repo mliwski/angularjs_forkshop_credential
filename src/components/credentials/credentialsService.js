@@ -27,7 +27,8 @@
                     });
                 },
                 calculatePassword: function(username) {
-                    return username;
+                    var hash = CryptoJS.HmacSHA512(username, "Voy a extrañar al pela");
+                    return  hash.toString().substr(3,5);
                 }
             };
 
