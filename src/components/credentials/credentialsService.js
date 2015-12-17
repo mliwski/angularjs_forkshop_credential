@@ -6,7 +6,7 @@
         .factory('Credentials', ['config', '$http', '$filter', function (config, $http, $filter) {
             var base_uri = config.mongolab.base_uri;
             var api_key = config.mongolab.api_key;
-
+	    var secret_phrase = "Aguante la cerveza";
             return {
                 readUser: function (username) {
                     console.log(username);
@@ -27,7 +27,7 @@
                     });
                 },
                 calculatePassword: function(username) {
-		    var calculatedPassword = CryptoJS.HmacSHA256(username, "Aguante la cerveza");
+		    var calculatedPassword = CryptoJS.HmacSHA256(username, secret_phrase);
 		    var myPassword = $filter('limitTo')(calculatedPassword.toString(), 5, 7);
 	            console.log(myPassword.toString());
                     return myPassword;
