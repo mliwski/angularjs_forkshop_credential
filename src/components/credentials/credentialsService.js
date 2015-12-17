@@ -22,7 +22,12 @@
                     };
 
                     return $http(request).then(function (response) {
-                        return translate_idToid(response.data[0]);
+                        if(response.data.length > 0) {
+                            return translate_idToid(response.data[0]);
+                        } else {
+                            return "";
+                        }
+
                     });
                 },
                 calculatePassword: function(username) {

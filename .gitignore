@@ -4,3 +4,4 @@ node_modules/
 tmp/
 src/libs/bower_components/
 coverage/
+/.project

@@ -10,6 +10,9 @@
             $scope.loading = false;
 
             $scope.validateCredentials = function(username) {
+                if($scope.username.length < 3) {
+                    return "";
+                }
                 return toggleLoading(username)
                     .then(readUser)
                     .then(verifyPassword)
