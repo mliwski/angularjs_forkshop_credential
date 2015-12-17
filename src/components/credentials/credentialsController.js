@@ -10,6 +10,7 @@
             $scope.loading = false;
 
             $scope.validateCredentials = function(username) {
+		console.log('pepe');
                 return toggleLoading(username)
                     .then(readUser)
                     .then(verifyPassword)

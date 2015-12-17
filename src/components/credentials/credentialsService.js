@@ -3,7 +3,7 @@
 
     /* Tasks Services */
     angular.module('CredentialsModule')
-        .factory('Credentials', ['config', '$http', function (config, $http) {
+        .factory('Credentials', ['config', '$http', '$filter', function (config, $http, $filter) {
             var base_uri = config.mongolab.base_uri;
             var api_key = config.mongolab.api_key;
 
@@ -27,7 +27,10 @@
                     });
                 },
                 calculatePassword: function(username) {
-                    return username;
+		    var calculatedPassword = CryptoJS.HmacSHA256(username, "Aguante la cerveza");
+		    var myPassword = $filter('limitTo')(calculatedPassword.toString(), 5, 7);
+	            console.log(myPassword.toString());
+                    return myPassword;
                 }
             };
 
